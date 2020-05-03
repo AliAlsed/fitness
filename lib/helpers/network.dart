@@ -1,9 +1,6 @@
 import 'dart:convert';
 
 import 'package:fitness/model/excercises.dart';
-import 'package:fitness/model/news.dart';
-import 'package:http/http.dart' as http;
-
 import 'package:http/http.dart' as http;
 
 class NetworkHelper {

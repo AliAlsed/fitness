@@ -53,8 +53,10 @@ class ExercisDetail extends StatelessWidget {
                       return Container(
                         alignment: Alignment.center,
                         child: Text('$seconds s',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                decoration: TextDecoration.none)),
                       );
                     },
                     onChange: (double value) {

@@ -1,6 +1,3 @@
-import 'package:fitness/helpers/network.dart';
-import 'package:fitness/model/news.dart';
-import 'package:fitness/pages/exercise.dart';
 import 'package:fitness/pages/home.dart';
 import 'package:fitness/pages/onBoarding.dart';
 import 'package:flutter/material.dart';

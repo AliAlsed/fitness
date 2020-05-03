@@ -5,9 +5,9 @@ class OnBoarding extends StatelessWidget {
   @override
   List<PageViewModel> pages = [
     PageViewModel(
-      title: "Title of first page",
+      title: "Fitness",
       body:
-          "Here you can write the description of the page, to explain someting...",
+          "Success usually comes to those who are too busy to be looking for it.",
       image: Center(
         child: Image.asset("assets/images/1.png", height: 175.0),
       ),
@@ -18,9 +18,9 @@ class OnBoarding extends StatelessWidget {
       ),
     ),
     PageViewModel(
-      title: "Title of first page",
+      title: "Keep Going",
       body:
-          "Here you can write the description of the page, to explain someting...",
+          "The only place where success comes before work is in the dictionary",
       image: Center(
         child: Image.asset("assets/images/2.png", height: 175.0),
       ),
@@ -31,9 +31,8 @@ class OnBoarding extends StatelessWidget {
       ),
     ),
     PageViewModel(
-      title: "Title of first page",
-      body:
-          "Here you can write the description of the page, to explain someting...",
+      title: "Focus",
+      body: "All progress takes place outside the comfort zone",
       image: Center(
         child: Image.asset("assets/images/3.png", height: 175.0),
       ),

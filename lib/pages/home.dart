@@ -10,6 +10,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var begin = Offset(0.0, 1.0);
+    var end = Offset.zero;
+    var curve = Curves.ease;
+    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
     networkHelper.getExercises();
     return Scaffold(
       appBar: AppBar(
@@ -30,13 +34,36 @@ class HomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    ExercisDetail(
-                                  exercises: snap.data.exercises[index],
-                                ),
+                              PageRouteBuilder(
+                                transitionDuration:
+                                    Duration(milliseconds: 1000),
+                                pageBuilder: (BuildContext context,
+                                    Animation<double> animation,
+                                    Animation<double> secondaryAnimation) {
+                                  return ExercisDetail(
+                                    exercises: snap.data.exercises[index],
+                                  );
+                                },
+                                transitionsBuilder: (BuildContext context,
+                                    Animation<double> animation,
+                                    Animation<double> secondaryAnimation,
+                                    Widget child) {
+                                  return Align(
+                                    // child: FadeTransition(
+                                    //   opacity: animation,
+                                    //   child: child,
+                                    // ),
+                                    child: SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child,
+                                    ),
+                                  );
+                                },
                               ),
                             );
+
+                            //       pageBuilder: (_, __, ___) => ),
+                            // );
                           },
                           child: Hero(
                             tag: snap.data.exercises[index].id,
@@ -82,7 +109,9 @@ class HomeScreen extends StatelessWidget {
                                     child: Text(
                                       snap.data.exercises[index].title,
                                       style: TextStyle(
-                                          fontSize: 18, color: Colors.white),
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          decoration: TextDecoration.none),
                                     ),
                                   )
                                 ],
